@@ -1,0 +1,21 @@
+name: http_solver
+description: A package help you to make api call and handle error faster, also you can check for internet before call api.
+version: 0.0.1
+author: AbdOo Saed <abdoo.dev@gmail.com>
+homepage: https://www.linkedin.com/in/abdo-saed/
+
+environment:
+  sdk: ">=2.6.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dartz: ^0.9.0-dev.5
+  http: ^0.12.0+4
+  connectivity: ^0.4.6+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
