@@ -1,10 +1,12 @@
 import 'dart:io';
-import 'package:http_solver/src/util/check_internet.dart';
-import 'models/models.dart';
+
 import 'package:http/http.dart' as http;
+import 'package:http_solver/src/util/check_internet.dart';
+
+import 'models/models.dart';
 
 class HttpSolver {
-  Future<T> getFromApi<T extends BaseModelForHttpSolver>(T model, String url,
+ static Future<T> getFromApi<T extends BaseModelForHttpSolver>(T model,String url,
       {Map<String, String> headers, bool checkInternet = false}) async {
     if (checkInternet == true && !(await hasInternet()))
       throw Failure('No Internet connection');

@@ -2,7 +2,7 @@ import 'dart:collection';
 import 'dart:convert';
 import 'package:http_solver/http_solver.dart';
 
-class Post extends BaseModelForHttpSolver {
+class Post implements BaseModelForHttpSolver{
   final int id;
   final int userId;
   final String title;
