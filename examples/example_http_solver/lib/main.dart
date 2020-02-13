@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:http_solver/http_solver.dart' as httpSolver;
+import 'package:http_solver/http_solver.dart';
 
 import 'model_post.dart';
 
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  httpSolver.Either<httpSolver.Failure, Post> _data;
+ Either<Failure, Post> _data;
   final url = "http://www.mocky.io/v2/5e3c29393000009c2e214bf8";
 
   @override
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _getApi() async {
-    widget._data = await httpSolver.HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
+    widget._data = await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
         .toEither();
     setState(() {});
   }
