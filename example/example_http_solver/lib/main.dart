@@ -1,5 +1,6 @@
 import 'dart:collection';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:http_solver/http_solver.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
 class HomePage extends StatefulWidget {
   Either<Failure, Post> _modelOrError;
   final url = "http://www.mocky.io/v2/5e3c29393000009c2e214bf8";
+  final urlWithNotFound = "http://www.mocky.io/v2/5e4b041f2f0000490097d6ca";
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -31,16 +33,16 @@ class _HomePageState extends State<HomePage> {
         body: Center(
           child: (widget._modelOrError == null)
               ? Text('No Data Yet')
-              : widget._modelOrError.fold(
-                  (failure) => Text("${failure.message}"),
+              : widget._modelOrError.fold((failure) => Text(failure.toString()),
                   (post) => Text(post.title)),
         ));
   }
 
   void _getEither() async {
-    widget._modelOrError =
-        await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
-            .toEither();
+    widget._modelOrError = await HttpSolver.getFromApi(
+            Post(), widget.urlWithNotFound,
+            checkInternet: true)
+        .toEither();
     setState(() {});
   }
 }

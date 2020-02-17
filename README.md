@@ -10,11 +10,20 @@ A package help you to make api call and handle error faster, also you can check 
 class YourModel implements BaseModelForHttpSolver{}
 ```
 
-## get data from your api
-**getFromApi** static method take `YourModel` and `your Api url` and return Future<YourModel> and it is have some option parameter `checkInternet`, `headers` for Api.
+## Get data from your api
+**getFromApi** static method take `YourModel` and `your Api url` and return Future<YourModel>
+ and it is have some option parameter `checkInternet`, `headers` for Api.
 
 ```dart
 YourModel dataInModel = await HttpSolver.getFromApi(YourModel(), apiUrl, checkInternet: true);
+```
+
+## Post to api
+**getFromApi** static method take `YourModel` and `your Api url` and return Future<YourModel>
+ and it is have some option parameter `checkInternet`, `headers` for Api.
+
+```dart
+YourModel dataInModel = await HttpSolver.postToApi(YourModel(), apiUrl,body: body , checkInternet: true);
 ```
 
 ## convert model to either

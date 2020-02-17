@@ -5,5 +5,5 @@ class Failure implements Exception {
   Failure(this.message, {this.code = 0});
 
   @override
-  String toString() => message;
+  String toString() => '$message  $code';
 }
