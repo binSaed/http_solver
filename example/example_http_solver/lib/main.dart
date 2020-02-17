@@ -9,17 +9,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatefulWidget {
-  Either<Failure, Post> _data;
+  Either<Failure, Post> _modelOrError;
   final url = "http://www.mocky.io/v2/5e3c29393000009c2e214bf8";
 
   @override
@@ -30,18 +26,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: _getApi),
-      body: Center(
-        child: (widget._data == null)
-            ? Container(color: Colors.amber)
-            : widget._data.fold((failure) => Text("${failure.message}"),
-                (post) => Text(post.title)),
-      ),
-    );
+        floatingActionButton:
+            FloatingActionButton(onPressed: _getEither, child: Text('Get')),
+        body: Center(
+          child: (widget._modelOrError == null)
+              ? Text('No Data Yet')
+              : widget._modelOrError.fold(
+                  (failure) => Text("${failure.message}"),
+                  (post) => Text(post.title)),
+        ));
   }
 
-  void _getApi() async {
-    widget._data =
+  void _getEither() async {
+    widget._modelOrError =
         await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
             .toEither();
     setState(() {});
@@ -74,7 +71,6 @@ class Post implements BaseModelForHttpSolver {
 
   @override
   Map<String, dynamic> toJson() {
-    //  return json.encode([this.id, this.userId, this.title]);//Converts [value] to a JSON string.
     final Map<String, dynamic> data = HashMap<String, dynamic>();
     data['id'] = this.id;
     data['userId'] = this.userId;
