@@ -1,6 +1,6 @@
 name: http_solver
 description: A package help you to make api call and handle error faster, also you can check for internet before call api.
-version: 0.0.2
+version: 0.1.0
 author: AbdOo Saed <abdoo.dev@gmail.com>
 homepage: https://github.com/AbdOoSaed/http_solver
 repository: https://github.com/AbdOoSaed/http_solver

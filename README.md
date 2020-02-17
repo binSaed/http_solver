@@ -1,4 +1,4 @@
-# either_from_either
+# either_from_api
 
 A package help you to make api call and handle error faster, also you can check for internet before call api.
 
