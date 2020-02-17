@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
- Either<Failure, Post> _data;
+  Either<Failure, Post> _data;
   final url = "http://www.mocky.io/v2/5e3c29393000009c2e214bf8";
 
   @override
@@ -41,8 +41,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _getApi() async {
-    widget._data = await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
-        .toEither();
+    widget._data =
+        await HttpSolver.getFromApi(Post(), widget.url, checkInternet: true)
+            .toEither();
     setState(() {});
   }
 }
