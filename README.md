@@ -1,3 +1,6 @@
+![Pub Version](https://img.shields.io/pub/v/http_solver?color=1&label=http_solver)
+![GitHub repo size](https://img.shields.io/github/repo-size/AbdOoSaed/http_solver)
+
 # http_solver
 ---
 
