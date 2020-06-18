@@ -2,6 +2,8 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/AbdOoSaed/http_solver)
 
 # http_solver
+
+##not for production use, only for learning purpose.
 ---
 
 A package help you to make api call and handle error faster, also you can check for internet before call api.
